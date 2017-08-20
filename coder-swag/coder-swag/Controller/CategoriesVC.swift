@@ -41,12 +41,13 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         performSegue(withIdentifier: "ProductsVC", sender: category)
     }
     
+    // This will run before segue to ProductsVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let productsVC = segue.destination as? ProductsVC {
             let barBtn = UIBarButtonItem()
             barBtn.title = ""
             navigationItem.backBarButtonItem = barBtn
-            assert(sender as? Category != nil)
+            assert(sender as? Category != nil, "Lỗi rồi kìa ahihi")
             productsVC.initProducts(category: sender as! Category)
             
             
